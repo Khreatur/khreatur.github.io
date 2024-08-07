@@ -1,0 +1,187 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Pour occuper toute la hauteur de l'écran */
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 0;
+}
+
+li {
+    margin: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #f8f8f8;
+    outline: none;
+    font-family: 'Roboto', sans-serif; /* Utiliser la police Roboto */
+}
+
+#category-page {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-item {
+    background-color: white;
+    border: 3px solid black;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    color:black;
+}
+.rainbow-border {
+    border-image: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+    border-image-slice: 1;
+    background: linear-gradient(110deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+    -webkit-background-clip: text; /* Appliquer le dégradé au texte */
+    -webkit-text-fill-color: transparent; /* Masquer la couleur du texte pour voir le dégradé */
+    background-clip: text; /* Appliquer le dégradé au texte (fonctionne dans certains navigateurs modernes) */
+}
+
+.category-item img {
+    width: 60px; /* Ajuster la taille de l'icône */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.category-item:active {
+    transform: scale(1.1);
+}
+/* Style pour le conteneur principal */
+#vocabulary-page {
+    display: flex;
+    flex-direction: column; /* Dispose les éléments enfants en colonne */
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    overflow: hidden; /* Empêche le défilement si nécessaire */
+}
+
+/* Style pour l'en-tête */
+#vocabulary-page header {
+    flex: 0 0 auto; /* Ne pas permettre à l'en-tête de se redimensionner */
+    padding: 10px; /* Ajoute un peu d'espace autour du contenu de l'en-tête */
+
+}
+
+/* Style pour le contenu principal */
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre le contenu verticalement */
+    align-items: center; /* Centre le contenu horizontalement */
+    height: calc(100vh - 60px); /* Ajuste la hauteur pour éviter d'empiéter sur le header */
+    text-align: center; /* Centre le texte */
+    position: relative; /* Pour positionner les boutons */
+}
+#translation {
+    margin-bottom: 30px; /* Crée un espace de 30px en dessous de la traduction */
+}
+
+#back-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    outline: none;
+}
+
+#back-button:focus {
+    outline: none;
+}
+
+
+
+#vocab-word,
+#translation
+ {
+    font-size: 50px; /* Taille de police plus grande pour les mots */
+    font-weight: bold; /* Mettre les mots en gras */
+    font-family: 'Roboto', sans-serif; /* Utiliser la police Roboto */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.white-text {
+    color: white; /* Texte blanc */
+}
+
+.black-text {
+    color: black; /* Texte noir */
+}
+
+#vocab-word.show,
+#translation.show
+{
+    opacity: 1;
+}
+
+
+
+header {
+    color:black;
+    padding: 10px;
+    text-align: left;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer; /* Indiquer que la zone est cliquable */
+}
+
+@keyframes fadeInAndSlideUp {
+    0% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) translateY(0px);
+    
+    }
+
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) translateY(-100px);
+    }
+}
+
+#icon-container {
+    animation: fadeInAndSlideUp 0.8s ease-out;
+}
+
+
+
+
+
+

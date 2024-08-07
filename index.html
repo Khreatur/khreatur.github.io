@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apprendre le vocabulaire italien</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+
+</head>
+<body>
+    <!-- Page de sélection de la catégorie -->
+    <div id="category-page">
+        <h1></h1>
+        <ul>
+            <li>
+                <button class="category-item rainbow-border" onclick="selectCategory('aléatoire')">
+                    <img src="icones/aléatoire.png" alt="Aléatoire">
+                    Casuale
+                </button>
+            </li>
+            <li>
+                <button class="category-item" onclick="selectCategory('nourriture')">
+                    <img src="icones/nourriture.png" alt="Nourriture">
+                    Cibo
+                </button>
+            </li>
+            <li>
+                <button class="category-item" onclick="selectCategory('maison')">
+                    <img src="icones/maison.png" alt="Maison">
+                    Casa
+                </button>
+            </li>
+            <li>
+                <button class="category-item" onclick="selectCategory('métiers')">
+                    <img src="icones/métiers.png" alt="Métiers">
+                    Lavoro
+                </button>
+            </li>
+            <li>
+                <button class="category-item" onclick="selectCategory('corps')">
+                    <img src="icones/corps.png" alt="Corps">
+                    Corpo
+                </button>
+            </li>
+            <li>
+                <button class="category-item" onclick="selectCategory('animaux')">
+                    <img src="icones/animaux.png" alt="animaux">
+                    Animali
+                </button>
+            </li>
+            <li>
+                <button class="category-item" onclick="selectCategory('vêtements')">
+                    <img src="icones/vetements.png" alt="Vêtements">
+                    Vestiti
+                </button>
+            </li>
+            <li>
+                <button class="category-item" onclick="selectCategory('sport')">
+                    <img src="icones/sport.png" alt="Sport">
+                    Sport
+                </button>
+            </li>
+            <li>
+                <button class="category-item" onclick="selectCategory('art')">
+                    <img src="icones/art.png" alt="Art">
+                    Arte
+                </button>
+            </li>
+            <li>
+                <button class="category-item" onclick="selectCategory('nombres')">
+                    <img src="icones/nombres.png" alt="Nombres">
+                    Numeri
+                </button>
+            </li>
+            <li>
+                <button class="category-item" onclick="selectCategory('prépositions')">
+                    <img src="icones/prepositions.png" alt="Prépositions">
+                    Preposizioni
+                </button>
+            </li>
+            <li>
+                <button class="category-item" onclick="selectCategory('verbes')">
+                    <img src="icones/verbes.png" alt="Verbes">
+                    Verbi
+                </button>
+            </li>
+
+        </ul>
+    </div>
+
+    <!-- Page d'affichage du vocabulaire -->
+    <div id="vocabulary-page" style="display: none;">
+        <header>
+            <button id="back-button" onclick="goBack()">←</button>
+        </header>
+        <div id="content" onclick="nextWord()">
+            <div id="vocab-word"></div>
+            <div id="translation"></div>
+
+        </div>
+        <div id="icon-container" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;">
+            <img id="icon" src="" alt="Icon" style="width: 50px; height: 50px;">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
