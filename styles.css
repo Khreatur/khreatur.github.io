@@ -41,11 +41,11 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #F5F8DE;
 }
 
 .category-item {
     background-color: white;
-    border: 3px solid black;
     width: 150px;
     height: 150px;
     display: flex;
@@ -57,14 +57,7 @@ button {
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
     color:black;
-}
-.rainbow-border {
-    border-image: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
-    border-image-slice: 1;
-    background: linear-gradient(110deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
-    -webkit-background-clip: text; /* Appliquer le dégradé au texte */
-    -webkit-text-fill-color: transparent; /* Masquer la couleur du texte pour voir le dégradé */
-    background-clip: text; /* Appliquer le dégradé au texte (fonctionne dans certains navigateurs modernes) */
+    border-radius: 20px;
 }
 
 .category-item img {
@@ -93,16 +86,28 @@ button {
 
 /* Style pour le contenu principal */
 #content {
+    position:absolute;
+    left:50%;
+    transform: translate(-50%, -50%); /* Centrer l'élément */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centre le contenu verticalement */
+    top: 70%; /* Centre le contenu verticalement */
+    height:400px;
     align-items: center; /* Centre le contenu horizontalement */
-    height: calc(100vh - 60px); /* Ajuste la hauteur pour éviter d'empiéter sur le header */
     text-align: center; /* Centre le texte */
-    position: relative; /* Pour positionner les boutons */
+    position: absolute; /* Pour positionner les boutons */
+    width:370px;
+
+
 }
 #translation {
-    margin-bottom: 30px; /* Crée un espace de 30px en dessous de la traduction */
+    position: absolute;
+    top: 100px;  /* Ajustez la position verticale */
+    left: 50%; /* Ajustez la position horizontale */
+    transform: translate(-50%, -50%); /* Centrer l'élément */
+    width:max-content;
+
+
 }
 
 #back-button {
@@ -122,7 +127,7 @@ button {
 #vocab-word,
 #translation
  {
-    font-size: 50px; /* Taille de police plus grande pour les mots */
+    font-size: 45px; /* Taille de police plus grande pour les mots */
     font-weight: bold; /* Mettre les mots en gras */
     font-family: 'Roboto', sans-serif; /* Utiliser la police Roboto */
     opacity: 0;
@@ -164,20 +169,69 @@ main {
 
 @keyframes fadeInAndSlideUp {
     0% {
-        opacity: 0.5;
-        transform: translate(-50%, -50%) translateY(0px);
+        opacity: 1;
+        transform: translate(-50%, -50%) translateY(-100px);
     
     }
 
 
     100% {
         opacity: 1;
-        transform: translate(-50%, -50%) translateY(-100px);
+        transform: translate(-50%, -50%) translateY(-200px);
     }
 }
 
 #icon-container {
     animation: fadeInAndSlideUp 0.8s ease-out;
+}
+
+/* Animation pour faire glisser le mot français vers le haut */
+@keyframes slideUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20px); /* Ajustez la valeur de translation selon vos besoins */
+        opacity: 1;
+    }
+}
+
+/* Animation pour faire apparaître le mot traduit */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        transform: translateY(-20px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20px);
+        opacity: 0.5;
+    }
+}
+
+/* Style pour les mots */
+.word {
+    transition: opacity 0.5s ease;
+}
+
+/* Appliquer les animations */
+#vocab-word.slide-up {
+    animation: slideUp 0.5s forwards; /* 0.5s est la durée de l'animation */
+}
+#vocab-word.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+#translation.fade-in {
+    animation: fadeIn 0.5s forwards;
 }
 
 

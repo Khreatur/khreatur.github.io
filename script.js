@@ -4,7 +4,7 @@ const vocabulary = {
     nourriture: [
         ["Pomme", "Mela"],
         ["Pain", "Pane"],
-        ["Fromage", "Al formaggio"],
+        ["Fromage", "Formaggio"],
         ["Tomate", "Pomodoro"],
         ["Lait", "Latte"],
         ["Viande", "Carne"],
@@ -25,7 +25,7 @@ const vocabulary = {
         ["Chocolat", "Cioccolato"],
         ["Café", "Caffè"],
         ["Thé", "Tè"],
-        ["Jus", "Succo di frutta"],
+        ["Jus de fruit", "Succo di frutta"],
         ["Yaourt", "Yogurt"],
         ["Crème", "Crema"],
         ["Vin", "Vino"],
@@ -49,6 +49,12 @@ const vocabulary = {
         ["Champignon", "Funghi"]
     ],
     maison: [
+        ["Le salon", "La mostra"],
+        ["La pièce", "La stanza"],
+        ["La cuisine", "La cucina"],
+        ["La chambre", "La stanza da letto"],
+        ["Les toilettes", "La toiletta"],
+        ["La salle de bain", "Il bagno"],
         ["La table", "Il tavolo"],
         ["La chaise", "La sedia"],
         ["Le lit", "Il letto"],
@@ -62,7 +68,7 @@ const vocabulary = {
         ["Le four", "Il forno"],
         ["Le micro-ondes", "Il microonde"],
         ["Le lave-vaisselle", "La lavastoviglie"],
-        ["Le placard", "Il ripostiglio"],
+        ["Le dressing", "La guardaroba"],
         ["Le rideau", "La tenda"],
         ["Les luminaires", "Le lampade"],
         ["Le tapis", "Il tappeto"],
@@ -73,9 +79,9 @@ const vocabulary = {
         ["La console", "La consolle"],
         ["Le pouf", "Il pouf"],
         ["La chaise longue", "La sdraio"],
-        ["Le bureau de travail", "La scrivania da lavoro"],
+        ["Le bureau", "La scrivania"],
         ["La cheminée", "Il camino"],
-        ["La penderie", "L'armadio a muro"],
+        ["La penderie", "L'armadio"],
         ["La lampe", "La lampada"],
         ["Le plaid", "La coperta"],
         ["La table de nuit", "Il comodino"],
@@ -83,20 +89,17 @@ const vocabulary = {
         ["La couette", "La coperta"],
         ["Le matelas", "Il materasso"],
         ["Le tiroir", "Il cassetto"],
-        ["La bibliothèque murale", "La mensola libreria"],
+        ["La bibliothèque", "La libreria"],
         ["La housse", "La copertura"],
         ["Le climatiseur", "Il condizionatore"],
         ["Le ventilateur", "Il ventilatore"],
-        ["La cloison", "La parete divisoria"],
         ["La tapisserie", "La tappezzeria"],
         ["Le parquet", "Il parquet"],
         ["Le carrelage", "Le piastrelle"],
         ["La plaque de cuisson", "Il piano cottura"],
-        ["L'étagère murale", "La mensola a muro"],
-        ["Le placard de rangement", "L'armadio di stoccaggio"],
+        ["L'étagère", "La mensola"],
         ["Le sèche-linge", "L'asciugatrice"],
-        ["Le rangement", "Il contenitore"],
-        ["La console de salon", "La consolle da soggiorno"],
+        ["La console", "La consolle"],
         ["Le tabouret", "Lo sgabello"],
         ["Le buffet", "La credenza"]
     ],
@@ -629,8 +632,9 @@ function updateDisplay() {
         translationElement = document.getElementById('translation');
         backButton = document.getElementById('back-button');
 
-        wordElement.classList.remove('show');
-        translationElement.classList.remove('show');
+        wordElement.classList.remove('slide-up');
+        wordElement.classList.remove('fade-out');
+        translationElement.classList.remove('fade-in');
 
         setTimeout(() => {
             wordElement.textContent = frWord;
@@ -661,7 +665,7 @@ function updateDisplay() {
             document.getElementById('vocabulary-page').style.display = 'flex';
 
             setTimeout(() => {
-                wordElement.classList.add('show');
+                wordElement.classList.add('slide-up');
                 document.getElementById('content').onclick = nextWord; // Réactiver le clic pour afficher la traduction
                 removeSwipeListeners();  // Désactiver les swipes
             }, 50);
@@ -708,15 +712,17 @@ function processNotOkWords() {
 
 function nextWord() {
     if (showingTranslation) {
-        wordElement.classList.remove('show');
-        translationElement.classList.remove('show');
+        wordElement.classList.remove('slide-up');
+        wordElement.classList.remove('fade-out');
+        translationElement.classList.remove('fade-in');
         setTimeout(() => {
             updateDisplay();
             processNotOkWords();
         }, 200);
     } else {
         document.getElementById('translation').style.display = 'block';
-        translationElement.classList.add('show');
+        wordElement.classList.add('fade-out');
+        translationElement.classList.add('fade-in');
         showingTranslation = true;
         const itWord = translationElement.textContent;
         speakTranslation(itWord);
@@ -745,11 +751,11 @@ function handleSwipe(event) {
     if (Math.abs(diffX) > 50) {  // Seulement si le swipe est suffisamment long
         if (diffX > 0) {
             handleOk();  // Swipe vers la droite
-            showSwipeIcon('/icones/ok.svg');
+            showSwipeIcon('/icones/ok.png');
         } else {
             
             handleNotOk();  // Swipe vers la gauche
-            showSwipeIcon('/icones/nok.webp');
+            showSwipeIcon('/icones/nok.png');
         }
     }
 }
