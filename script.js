@@ -555,11 +555,11 @@ let notOkWords = [];
 let startX = 0;  // Position de départ du swipe
 
 const colors = [
-    '#FFC0CB', // Rose
-    '#F3FFB6', // Menthe
-    '#361134', // Violet
-    '#883955', // Magenta
-    '#FF6347'  // Tomate
+    '#FFC0CB', // Rose clair
+    '#F5F8DE', // Beige
+    '#361134', // Violet foncé
+    '#883955', // Pourpe/rose
+    '#DA2C38'  // Corail
 ];
 
 function getColorForWord(word) {
@@ -641,7 +641,7 @@ function updateDisplay() {
             const backgroundColor = getColorForWord(frWord);
             document.getElementById('vocabulary-page').style.backgroundColor = backgroundColor;
 
-            if (backgroundColor === '#361134' || backgroundColor === '#883955') {
+            if (backgroundColor === '#DA2C38' || backgroundColor === '#361134' || backgroundColor === '#883955') {
                 wordElement.classList.add('white-text');
                 translationElement.classList.add('white-text');
                 backButton.classList.add('white-text');
