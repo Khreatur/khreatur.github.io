@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh; /* Pour occuper toute la hauteur de l'écran */
+    height: 85vh; /* Pour occuper toute la hauteur de l'écran */
     display: flex;
     flex-direction: column;
 }
@@ -92,11 +92,13 @@ button {
     display: flex;
     flex-direction: column;
     top: 70%; /* Centre le contenu verticalement */
-    height:400px;
+    height:300px;
     align-items: center; /* Centre le contenu horizontalement */
     text-align: center; /* Centre le texte */
     position: absolute; /* Pour positionner les boutons */
     width:370px;
+    
+    
 
 
 }
@@ -165,6 +167,7 @@ main {
     font-size: 24px;
     padding: 10px;
     cursor: pointer; /* Indiquer que la zone est cliquable */
+
 }
 
 @keyframes fadeInAndSlideUp {

@@ -792,7 +792,7 @@ function updateDisplay() {
             showingTranslation = false;
 
             const backgroundColor = getColorForWord(frWord);
-            document.getElementById('vocabulary-page').style.backgroundColor = backgroundColor;
+            document.documentElement.style.backgroundColor = backgroundColor;
 
             if (backgroundColor === '#DA2C38' || backgroundColor === '#361134' || backgroundColor === '#883955') {
                 wordElement.classList.add('white-text');
